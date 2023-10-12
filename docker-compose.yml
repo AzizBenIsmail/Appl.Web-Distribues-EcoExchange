@@ -1,0 +1,66 @@
+version: "3.9"
+services:
+  
+    
+  Candidat:
+    container_name: Microservicecandidat-s
+    image: "microservicecandidate"
+    build: .\MicroserviceCandidats
+    ports:
+      - "8082:8082"   
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+    depends_on:
+      - "Eureka"
+  
+  Job:
+    container_name: Microservicejob-s
+    build: .\MicroserviceJob
+    ports:
+      - "8055:8055"   
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/jobTest?createDatabaseIfNotExist=true&userSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/      
+      
+      
+    image: "microservicejob"
+    restart: unless-stopped
+    depends_on:
+      - Eureka
+      - db-mysql
+ 
+  Eureka:
+    container_name: eureka
+    build: .\Eureka
+    hostname: serviceregistry
+    ports:
+      - "8761:8761"   
+    image: "eureka"
+    
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://serviceregistry:8761/eureka/
+    
+  
+  db-mysql:
+      image: "mysql:5.6"
+      container_name: db-mysql  
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+        #- MYSQL_DATABASE=job
+      ports:
+        - "3306:3306"
+      restart: unless-stopped  
+
+  apigateway:
+    container_name: apigateway
+    image: "apigatewayms"
+    build: .\apigateway
+    ports:
+      - "8090:8090"   
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+    depends_on:
+      - "Eureka"
+      - db-mysql
