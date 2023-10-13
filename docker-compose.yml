@@ -2,20 +2,21 @@ version: "3.9"
 services:
   
     
-  Candidat:
-    container_name: Microservicecandidat-s
-    image: "microservicecandidate"
-    build: .\MicroserviceCandidats
-    ports:
-      - "8082:8082"   
-    environment:
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
-    depends_on:
-      - "Eureka"
+  # # Candidat:
+  # #   container_name: Microservicecandidat-s
+  # #   image: "microservicecandidate"
+  # #   build: .\MicroserviceCandidats
+  # #   ports:
+  # #     - "8082:8082"   
+  # #   environment:
+  # #     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+  # #   depends_on:
+  # #     - "Eureka"
   
-  Job:
-    container_name: Microservicejob-s
-    build: .\MicroserviceJob
+  Item:
+    container_name: MicroserviceItem-s
+    image: "microserviceitem"
+    build: .\MicroserviceItem
     ports:
       - "8055:8055"   
     environment:
@@ -25,15 +26,15 @@ services:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/      
       
       
-    image: "microservicejob"
     restart: unless-stopped
     depends_on:
       - Eureka
       - db-mysql
  
+ 
   Eureka:
     container_name: eureka
-    build: .\Eureka
+    build: .\Eureka_Server_EcoExchange
     hostname: serviceregistry
     ports:
       - "8761:8761"   
