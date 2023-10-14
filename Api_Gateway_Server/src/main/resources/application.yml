@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # lower-case-service-id: true
+          enabled: true
+      routes:
+        - id: candidat-s
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/candidats/**
+
+        - id: job-s
+          uri: http://localhost:8055/
+          predicates:
+            - Path=/jobs/**
+
+

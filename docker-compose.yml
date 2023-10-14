@@ -40,17 +40,17 @@ services:
         - "3306:3306"
       restart: unless-stopped  
 
-  # apigateway:
-  #   container_name: apigateway
-  #   image: "apigatewayms"
-  #   build: .\apigateway
-  #   ports:
-  #     - "8090:8090"   
-  #   environment:
-  #     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
-  #   depends_on:
-  #     - "Eureka"
-  #     - db-mysql
+  apigateway:
+    container_name: Api_Gateway_Server
+    image: "Api_Gateway_Server"
+    build: .\Api_Gateway_Server
+    ports:
+      - "8090:8090"   
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+    depends_on:
+      - "Eureka"
+      - db-mysql
 
     
   # # Candidat:
