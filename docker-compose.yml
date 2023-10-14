@@ -42,8 +42,8 @@ services:
 
   apigateway:
     container_name: Api_Gateway_Server
-    image: "Api_Gateway_Server"
-    build: .\Api_Gateway_Server
+    image: "apigatewayms"
+    build: .\apigateway
     ports:
       - "8090:8090"   
     environment:
