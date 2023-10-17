@@ -21,5 +21,4 @@ public class Post implements Serializable{
     private String created_at;
     private String updated_at;
 
-    
 }
