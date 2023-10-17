@@ -69,13 +69,13 @@ services:
       - db-mysql
 
     
-  # # Candidat:
-  # #   container_name: Microservicecandidat-s
-  # #   image: "microservicecandidate"
-  # #   build: .\MicroserviceCandidats
-  # #   ports:
-  # #     - "8082:8082"   
-  # #   environment:
-  # #     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
-  # #   depends_on:
-  # #     - "Eureka"
+ # Candidat:
+ #   container_name: Microservicecandidat-s
+ #   image: "microservicecandidate"
+ #   build: .\MicroserviceCandidats
+ #   ports:
+ #     - "8082:8082"   
+ #   environment:
+ #     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+ #   depends_on:
+ #     - "Eureka"
