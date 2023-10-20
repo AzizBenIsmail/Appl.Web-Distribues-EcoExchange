@@ -6,10 +6,15 @@ spring:
           # lower-case-service-id: true
           enabled: true
       routes:
-        - id: candidat-s
-          uri: http://localhost:8082/
+        - id: MICORITEM-S
+          uri: http://localhost:8055/
           predicates:
-            - Path=/candidats/**
+            - Path=/MICORITEM-S/**
+
+        - id: MSTRADE-S
+          uri: http://localhost:8086/
+          predicates:
+            - Path=/MSTRADE-S/**
 
         - id: post-service
           uri: http://localhost:8088/
