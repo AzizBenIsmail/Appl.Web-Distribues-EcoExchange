@@ -56,6 +56,8 @@ services:
     image: "users"
     ports:
       - "8075:8075"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://serviceregistry:8761/eureka/
     depends_on:
         - Eureka
 
