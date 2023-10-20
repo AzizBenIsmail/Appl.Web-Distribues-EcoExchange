@@ -50,6 +50,15 @@ services:
       - Eureka
       - db-mysql
 
+  Users:
+    container_name: users
+    build: .\MicroServiceUser
+    image: "users"
+    ports:
+      - "8075:8075"
+    depends_on:
+        - Eureka
+
   Eureka:
     container_name: eureka
     build: .\Eureka_Server_EcoExchange
