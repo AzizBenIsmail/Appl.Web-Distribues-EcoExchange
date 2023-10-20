@@ -104,3 +104,13 @@ services:
  #     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
  #   depends_on:
  #     - "Eureka"
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest  # Utilisez l'image la plus récente de MongoDB
+    ports:
+      - "27017:27017"  # Port par défaut de MongoDB
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    restart: unless-stopped
