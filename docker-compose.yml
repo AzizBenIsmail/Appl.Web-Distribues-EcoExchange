@@ -96,16 +96,21 @@ services:
       - db-mysql
 
     
- # Candidat:
- #   container_name: Microservicecandidat-s
- #   image: "microservicecandidate"
- #   build: .\MicroserviceCandidats
- #   ports:
- #     - "8082:8082"   
- #   environment:
- #     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
- #   depends_on:
- #     - "Eureka"
+#  complaint:
+#    container_name: MicroserviceComplaint-s
+#    build: .\microserviceComplaint
+#    ports:
+#      - "8055:8055"
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:mongodb://mongodb:27017/Troc  # Utilisez le nom du service MongoDB comme hôte
+#      - SPRING_DATASOURCE_USERNAME=admin
+#      - SPRING_DATASOURCE_PASSWORD=admin
+#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+#    restart: unless-stopped
+#    depends_on:
+#      - Eureka
+#      - mongodb  # Dépend de MongoDB
+
 
   mongodb:
     container_name: mongodb
