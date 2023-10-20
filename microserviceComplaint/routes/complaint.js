@@ -6,5 +6,9 @@ router.post('/',addcomplaint);
 router.put('/:id',updatecomplaint);
 router.delete('/:id',deletecomplaint);
 
+router.get('/work', function (req, res, next) {
+    res.json("work")
+  });
+
 module.exports=router;
 
