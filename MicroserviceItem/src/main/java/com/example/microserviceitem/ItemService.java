@@ -1,14 +1,19 @@
 package com.example.microserviceitem;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ItemService {
     @Autowired
     private ItemRepository itemRepository;
+
+    @Autowired
+    private ModelMapper mapper;
 
     public Item AddItem(Item item) {
         return itemRepository.save(item);
@@ -38,4 +43,15 @@ public class ItemService {
     public List<Item> getAllItem() {
         return itemRepository.findAll();
     }
+
+    public Item getItemById(int id) {
+        return itemRepository.findById(id).orElse(null);
+    }
+
+//    public Item getItemById(int id) {
+//        Optional<Item> item = itemRepository.findById(id);
+//        Item itemResponse = mapper.map(item, Item.class);
+//        return itemResponse;
+//    }
+
 }

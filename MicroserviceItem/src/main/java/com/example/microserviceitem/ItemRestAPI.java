@@ -23,32 +23,39 @@ public class ItemRestAPI {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Item> createJob(@RequestBody Item item) {
+    public ResponseEntity<Item> createitem(@RequestBody Item item) {
         return new ResponseEntity<>(itemService.AddItem(item), HttpStatus.OK);
     }
 
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Item> updateJob(@PathVariable(value = "id") int id,
-                                         @RequestBody Item item) {
+    public ResponseEntity<Item> updateitem(@PathVariable(value = "id") int id,
+                                           @RequestBody Item item) {
         return new ResponseEntity<>(itemService.updateItem(id, item),
                 HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<String> deleteJob(@PathVariable(value = "id") int id) {
+    public ResponseEntity<String> deleteitem(@PathVariable(value = "id") int id) {
         return new ResponseEntity<>(itemService.deleteItem(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<List<Item>> getJob() {
-        List<Item> candidat = itemService.getAllItem();
-        if (candidat != null) {
-            return new ResponseEntity<>(candidat, HttpStatus.OK);
+    public ResponseEntity<List<Item>> getitem() {
+        List<Item> item = itemService.getAllItem();
+        if (item != null) {
+            return new ResponseEntity<>(item, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/items/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    private ResponseEntity<Item> getItem(@PathVariable("id") int id) {
+        Item item = itemService.getItemById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(item);
     }
 }
