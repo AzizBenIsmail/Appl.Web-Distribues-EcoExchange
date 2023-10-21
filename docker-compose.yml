@@ -41,7 +41,7 @@ services:
     ports:
       - "8088:8088"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/troc?createDatabaseIfNotExist=true&userSSL=false
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/Troc?createDatabaseIfNotExist=true&userSSL=false
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/      
