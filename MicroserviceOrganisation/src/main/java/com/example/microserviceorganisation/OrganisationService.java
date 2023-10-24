@@ -26,7 +26,6 @@ public class OrganisationService {
             existingOrganisation.setTitle(newOrganisation.getTitle());
             existingOrganisation.setDescription(newOrganisation.getDescription());
             existingOrganisation.setCategory(newOrganisation.getCategory());
-            existingOrganisation.setState(newOrganisation.getState());
             return organisationRepository.save(existingOrganisation);
         } else
             return null;

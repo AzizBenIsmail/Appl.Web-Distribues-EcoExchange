@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class OrganisationRestAPI {
+public class OrganisationRestApi {
 
     private String hello = "Hello I'm An Organisation";
 
