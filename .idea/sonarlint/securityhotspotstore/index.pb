@@ -15,3 +15,5 @@ u
 EMicroserviceItem/src/main/java/com/example/microserviceitem/Item.java,8\7\8736a3c963356ff3262f1c4111076358789b5979
 |
 LMicroserviceItem/src/main/java/com/example/microserviceitem/ItemRestAPI.java,0\3\03da176e8690a7194cdbd952c1ed3fff5f7fe051
+P
+ MicroserviceOrganisation/pom.xml,b\8\b8af4bee0507023524b4287ef40932feac081bbf
