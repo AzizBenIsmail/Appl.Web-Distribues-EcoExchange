@@ -22,7 +22,7 @@ services:
     container_name: MicroserviceOrganisation-s
     build: .\MicroserviceOrganisation
     ports:
-      - "8044:8044"
+      - "9090:8044"
     environment:
       - spring.datasource.url=jdbc:h2:mem:testdb;
       - SPRING_DATASOURCE_USERNAME=organisation
