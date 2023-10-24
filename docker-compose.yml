@@ -18,6 +18,23 @@ services:
       - Eureka
       - db-mysql
 
+  Organisation:
+    container_name: MicroserviceOrganisation-s
+    build: .\MicroserviceOrganisation
+    ports:
+      - "8044:8044"
+    environment:
+      - spring.datasource.url=jdbc:h2:mem:testdb;
+      - SPRING_DATASOURCE_USERNAME=organisation
+      - SPRING_DATASOURCE_PASSWORD=
+      - eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+    restart: unless-stopped
+
+    image: "microorganisation"
+    depends_on:
+      - Eureka
+      - db-h2
+
   Trade:
     container_name: MicroserviceTrade-s
     image: "trade"
@@ -83,6 +100,11 @@ services:
         - "3306:3306"
       restart: unless-stopped  
 
+  db-h2:
+    image: "h2_image"  # Remplacez "h2_image" par l'image H2 que vous utilisez
+    container_name: db-h2
+
+
   apigateway:
     container_name: Api_Gateway_Server
     image: "apigatewayms"
@@ -121,3 +143,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=admin
     restart: unless-stopped
+eureka:
+  client:
+    service-url:
+      defaultZone=http://localhost:8761/eureka/:
