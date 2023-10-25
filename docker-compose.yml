@@ -18,6 +18,16 @@ services:
       - Eureka
       - db-mysql
 
+  Organisation:
+    container_name: MicroserviceOrganisation-s
+    build: .\MicroserviceOrganisation
+    ports:
+      - "9090:8044"
+    restart: unless-stopped
+    image: "microorganisation"
+    depends_on:
+      - Eureka
+
   Trade:
     container_name: MicroserviceTrade-s
     image: "trade"
