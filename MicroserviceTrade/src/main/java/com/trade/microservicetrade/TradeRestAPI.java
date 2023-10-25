@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 public class TradeRestAPI {
     @Autowired TradeService tradeService;
-
+    @Autowired ItemClient itemClient;
 
     private String hello = "Hello I'm the trade MS";
 
@@ -19,6 +19,12 @@ public class TradeRestAPI {
     public String sayHello() {
 
         return hello;
+    }
+    @RequestMapping("/items")
+    public List<Item> getItems() {
+
+        List<Item> items = itemClient.getAllItems();
+        return items;
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

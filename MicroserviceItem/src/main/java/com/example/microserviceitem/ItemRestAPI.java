@@ -37,8 +37,13 @@ public class ItemRestAPI {
 
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<String> deleteitem(@PathVariable(value = "id") int id) {
-        return new ResponseEntity<>(itemService.deleteItem(id), HttpStatus.OK);
+    public ResponseEntity<List<Item>> deleteitem(@PathVariable(value = "id") int id) {
+        List<Item> item = itemService.getAllItem();
+        if ( itemService.deleteItem(id) ) {
+            return new ResponseEntity<>(item, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -52,10 +57,10 @@ public class ItemRestAPI {
         }
     }
 
-    @GetMapping("/items/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    private ResponseEntity<Item> getItem(@PathVariable("id") int id) {
-        Item item = itemService.getItemById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(item);
-    }
+//    @GetMapping("/items/{id}")
+//    @ResponseStatus(HttpStatus.OK)
+//    private ResponseEntity<Item> getItem(@PathVariable("id") int id) {
+//        Item item = itemService.getItemById(id);
+//        return ResponseEntity.status(HttpStatus.OK).body(item);
+//    }
 }
