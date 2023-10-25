@@ -52,10 +52,10 @@ public class ItemRestAPI {
         }
     }
 
-    @GetMapping("/items/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    private ResponseEntity<Item> getItem(@PathVariable("id") int id) {
-        Item item = itemService.getItemById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(item);
-    }
+//    @GetMapping("/items/{id}")
+//    @ResponseStatus(HttpStatus.OK)
+//    private ResponseEntity<Item> getItem(@PathVariable("id") int id) {
+//        Item item = itemService.getItemById(id);
+//        return ResponseEntity.status(HttpStatus.OK).body(item);
+//    }
 }
