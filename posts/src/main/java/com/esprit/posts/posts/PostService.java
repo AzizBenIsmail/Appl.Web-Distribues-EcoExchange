@@ -56,6 +56,13 @@ public List<PostRespose> getAllPosts() {
     return postResponses;
 }
 
+public List<UserResponse> getAllUsers() {
+    List<UserResponse> users = userClient.getAll();
+
+    return users;
+}
+
+
 
 public UserResponse getUserById(long userId){
     Mono<UserResponse> userResponse= webClient.get().uri("/"+userId).retrieve().bodyToMono(UserResponse.class);
