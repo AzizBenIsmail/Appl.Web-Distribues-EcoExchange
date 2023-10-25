@@ -10,7 +10,8 @@ COPY package*.json ./
 RUN npm install prettier -g
 
 # Install files
-RUN npm install
+RUN npm install \
+    npm install eureka-js-client --save
 
 # Copy Source Files
 Copy . .
