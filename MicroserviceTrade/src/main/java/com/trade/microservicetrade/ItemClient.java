@@ -1,7 +1,12 @@
 package com.trade.microservicetrade;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(name = "MICROITEM", url = "http://localhost:8055", path = "/MicroserviceItem")
+import java.util.List;
+
+@FeignClient(name = "MICORITEM-S")
 public interface ItemClient {
+    @GetMapping("/")
+    List<Item> getAllItems();
 }
