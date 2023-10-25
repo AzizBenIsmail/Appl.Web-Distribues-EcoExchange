@@ -3,6 +3,7 @@ package com.example.microserviceitem;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
 
 @Entity
@@ -13,6 +14,7 @@ public class Item implements Serializable {
     @GeneratedValue
     private int id;
     private String title,description,category,state;
+
 
     public Item() {
     }
