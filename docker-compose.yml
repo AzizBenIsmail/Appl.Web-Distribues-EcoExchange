@@ -23,13 +23,7 @@ services:
     build: .\MicroserviceOrganisation
     ports:
       - "9090:8044"
-    environment:
-      - spring.datasource.url=jdbc:h2:mem:testdb;
-      - SPRING_DATASOURCE_USERNAME=organisation
-      - SPRING_DATASOURCE_PASSWORD=
-      - eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
     restart: unless-stopped
-
     image: "microorganisation"
     depends_on:
       - Eureka
@@ -99,8 +93,6 @@ services:
         - "3306:3306"
       restart: unless-stopped  
 
-
-
   apigateway:
     container_name: Api_Gateway_Server
     image: "apigatewayms"
@@ -139,4 +131,3 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=admin
     restart: unless-stopped
-
