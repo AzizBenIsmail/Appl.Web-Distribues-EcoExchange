@@ -13,6 +13,7 @@ public class ItemRestAPI {
 
     private String hello = "Hello I'm Job";
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping("/hello")
     public String sayHello() {
         return hello;
@@ -21,12 +22,14 @@ public class ItemRestAPI {
     @Autowired
     private ItemService itemService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Item> createitem(@RequestBody Item item) {
         return new ResponseEntity<>(itemService.AddItem(item), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Item> updateitem(@PathVariable(value = "id") int id,
@@ -35,6 +38,7 @@ public class ItemRestAPI {
                 HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<Item>> deleteitem(@PathVariable(value = "id") int id) {
@@ -46,6 +50,7 @@ public class ItemRestAPI {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<Item>> getitem() {
