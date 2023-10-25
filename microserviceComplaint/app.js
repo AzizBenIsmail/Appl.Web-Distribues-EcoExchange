@@ -4,37 +4,47 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const http = require("http");
-const userModel= require('./Models/userModel')
+
 require("dotenv").config(); //configuration dotenv
 const mongoose = require('mongoose')
 const db = require('./db.json') //configuration json
+const eurekaHelper = require('./eureka-helper');
+
 
 var complaintRouteurs = require('./routes/complaint');
 //var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
+
 const { error } = require('console');
 
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.URL_MONGO || db.mongo.uri, {
   useNewUrlParser: true, useUnifiedTopology: true
 }).then(
-  ()=>{console.log('connect to BD');}
+  ()=>{    console.log('Connected to MongoDB');}
 ).catch(
   (error)=>{console.log(error.message);}
 );
 
 
 var app = express();
+const PORT = process.env.PORT || 5000;
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-//app.use('/', indexRouter);
-//app.use('/users', usersRouter);
 app.use('/complaints', complaintRouteurs)
 
+var router = express.Router();
+
+app.listen(PORT, () => {
+  console.log("complaint-service on 5000");
+})
+
+
+
+module.exports = router;
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -52,5 +62,5 @@ app.use(function (err, req, res, next) {
   res.json(err.message);
 });
 
-const server = http.createServer(app);
-server.listen(5000, () => { console.log("app is runnig on port 5000") });
+// registering serve on Eureka
+eurekaHelper.registerWithEureka('complaint-service', PORT);
