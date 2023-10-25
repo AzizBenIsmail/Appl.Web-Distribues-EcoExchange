@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ItemService {
@@ -32,12 +31,12 @@ public class ItemService {
             return null;
     }
 
-    public String deleteItem(int id) {
+    public boolean deleteItem(int id) {
         if (itemRepository.findById(id).isPresent()) {
             itemRepository.deleteById(id);
-            return "Item supprimé";
+            return true;
         } else
-            return "Item non supprimé";
+            return false;
     }
 
     public List<Item> getAllItem() {
