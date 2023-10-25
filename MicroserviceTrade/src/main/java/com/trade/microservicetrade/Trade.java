@@ -1,46 +1,43 @@
 package com.trade.microservicetrade;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
+@Getter
+@Setter
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Trade implements Serializable {
     @Id
     @GeneratedValue
-    private int id;
+     long id;
 
     @Temporal(TemporalType.DATE)
-    private Date proposalDate;
+     Date tradeStartDate;
+    @Temporal(TemporalType.DATE)
+     Date tradeEndDate;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    Status status;
 
-    public Trade() {
-    }
-    public Trade( Date proposalDate, Status status) {
-        this.proposalDate = proposalDate;
-        this.status = status;
-    }
 
-    public int getId() {
-        return id;
-    }
+    @ManyToOne
+     Item offeredItem;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
-    public Date getProposalDate() {
-        return proposalDate;
-    }
+    @ManyToOne
+    Item requestedItem;
 
-    public Status getStatus() {
-        return status;
-    }
 
-    public void setProposalDate(Date proposalDate) {
-        this.proposalDate = proposalDate;
-    }
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 }
