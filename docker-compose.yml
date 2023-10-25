@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-    
+
   Item:
     container_name: MicroserviceItem-s
     build: .\MicroserviceItem
@@ -103,31 +103,31 @@ services:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
     depends_on:
       - "Eureka"
-      - db-mysql
-
-    
-#  complaint:
-#    container_name: MicroserviceComplaint-s
-#    build: .\microserviceComplaint
-#    ports:
-#      - "8055:8055"
-#    environment:
-#      - SPRING_DATASOURCE_URL=jdbc:mongodb://mongodb:27017/Troc  # Utilisez le nom du service MongoDB comme hôte
-#      - SPRING_DATASOURCE_USERNAME=admin
-#      - SPRING_DATASOURCE_PASSWORD=admin
-#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
-#    restart: unless-stopped
-#    depends_on:
-#      - Eureka
-#      - mongodb  # Dépend de MongoDB
-
-
+      - db-mysql    
   mongodb:
+    image: "mongo:latest"
     container_name: mongodb
-    image: mongo:latest  # Utilisez l'image la plus récente de MongoDB
+      # Utilisez l'image la plus récente de MongoDB
     ports:
-      - "27017:27017"  # Port par défaut de MongoDB
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=admin
+      - "27020:27020"  # Port par défaut de MongoDB
+    command: mongod --port 27020
     restart: unless-stopped
+ 
+  complaint:
+    build:
+      context: ./microserviceComplaint
+      dockerfile: Dockerfile
+    container_name: complaint-service
+    ports:
+      - "5000:5000"
+     
+    environment:
+      - MONGO_URI=mongodb://mongodb:27020/atelierMongoose  # Currently this does not have any meaning and DOES NOT override the mongo db file
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
+    restart: unless-stopped
+    depends_on:
+#      - Eureka
+      - mongodb
+
+
+
