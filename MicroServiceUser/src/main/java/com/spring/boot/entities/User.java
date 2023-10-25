@@ -3,6 +3,7 @@ package com.spring.boot.entities;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -33,15 +34,22 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	
 	Long Id;
+	
+	@Column
 	String username;
-	String firstName;
-	String lastName;
-	String Email;
-	int Age;
-	String Address;
-	String phoneNumber;
+	@Column
+	String firstname;
+	@Column
+	String lastname;
+	@Column
+	String email;
+	@Column
+	int age;
+	@Column
+	String address;
+	@Column
+	String phonenumber;
 	
 	
 	

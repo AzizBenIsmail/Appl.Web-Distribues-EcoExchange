@@ -30,11 +30,11 @@ public class UserServiceImpl implements IUserService {
 	public User updateUser(User user) {
 		User fetchedUser = userRepo.findById(user.getId()).orElse(null);
 		fetchedUser.setUsername(user.getUsername());
-		fetchedUser.setFirstName(user.getFirstName());
-		fetchedUser.setLastName(user.getLastName());
+		fetchedUser.setFirstname(user.getFirstname());
+		fetchedUser.setLastname(user.getLastname());
 		fetchedUser.setEmail(user.getEmail());
 		fetchedUser.setAge(user.getAge());
-		fetchedUser.setPhoneNumber(user.getPhoneNumber());
+		fetchedUser.setPhonenumber(user.getPhonenumber());
 		return userRepo.save(fetchedUser);
 	}
 
