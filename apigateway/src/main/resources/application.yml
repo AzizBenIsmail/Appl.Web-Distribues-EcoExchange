@@ -24,5 +24,15 @@ spring:
         - id: MicroOrganisation-s
           uri: http://localhost:8044/
           predicates:
-            - Path=/MicroOrganisation-s/**
+            - Path=/MicroOrganisation-s/**     USER-SERVICE
+
+        - id: COMPLAINT-SERVICE
+          uri: http://localhost:5000/
+          predicates:
+            - Path=/COMPLAINT-SERVICE/**
+
+        - id: USER-SERVICE
+          uri: http://localhost:8075/
+          predicates:
+            - Path=/USER-SERVICE/**
 

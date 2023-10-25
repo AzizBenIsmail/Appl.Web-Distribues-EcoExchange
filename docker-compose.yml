@@ -104,8 +104,9 @@ services:
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
     depends_on:
-      - "Eureka"
+      - Eureka
       - db-mysql    
+
   mongodb:
     image: "mongo:latest"
     container_name: mongodb
@@ -122,13 +123,12 @@ services:
     container_name: complaint-service
     ports:
       - "5000:5000"
-     
     environment:
       - MONGO_URI=mongodb://mongodb:27020/atelierMongoose  # Currently this does not have any meaning and DOES NOT override the mongo db file
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://serviceregistry:8761/eureka/
     restart: unless-stopped
     depends_on:
-#      - Eureka
+      - Eureka
       - mongodb
 
 
