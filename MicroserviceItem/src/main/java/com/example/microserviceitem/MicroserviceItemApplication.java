@@ -26,17 +26,17 @@ public class MicroserviceItemApplication {
     @Autowired
     private ItemRepository itemRepository;
 
-//    @Bean
-//    ApplicationRunner init(){
-//        return (args)-> {
-//            //Save
-//            itemRepository.save(new Item("Aziz","Is","esprit","good"));
-//            itemRepository.save(new Item("Ahmed","Is","esp","good"));
-//            itemRepository.save(new Item("Hamza","Is","eit","good"));
-//            //fetch
-//            itemRepository.findAll().forEach(System.out::println);
-//        };
-//    }
+    @Bean
+    ApplicationRunner init(){
+        return (args)-> {
+            //Save
+            itemRepository.save(new Item("Aziz","Is","esprit","good"));
+            itemRepository.save(new Item("Ahmed","Is","esp","good"));
+            itemRepository.save(new Item("Hamza","Is","eit","good"));
+            //fetch
+            itemRepository.findAll().forEach(System.out::println);
+        };
+    }
 
     @Bean
     public WebClient webClient(){
