@@ -30,9 +30,9 @@ public class MicroserviceItemApplication {
     ApplicationRunner init(){
         return (args)-> {
             //Save
-            itemRepository.save(new Item("Aziz","Is","esprit","good"));
-            itemRepository.save(new Item("Ahmed","Is","esp","good"));
-            itemRepository.save(new Item("Hamza","Is","eit","good"));
+            itemRepository.save(new Item("Aziz","Is","esprit","good",1));
+            itemRepository.save(new Item("Ahmed","Is","esp","good",2));
+            itemRepository.save(new Item("Hamza","Is","eit","good",3));
             //fetch
             itemRepository.findAll().forEach(System.out::println);
         };

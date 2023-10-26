@@ -19,11 +19,12 @@ public class Item implements Serializable {
     public Item() {
     }
 
-    public Item(String title, String description, String category, String state) {
+    public Item(String title, String description, String category, String state,int user_id) {
         this.title = title;
         this.description = description;
         this.category = category;
         this.state = state;
+        this.user_id = user_id;
     }
 
     public int getId() {
