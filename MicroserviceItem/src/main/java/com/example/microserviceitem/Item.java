@@ -14,7 +14,7 @@ public class Item implements Serializable {
     @GeneratedValue
     private int id;
     private String title,description,category,state;
-
+    private int user_id;
 
     public Item() {
     }
@@ -60,5 +60,17 @@ public class Item implements Serializable {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 }
