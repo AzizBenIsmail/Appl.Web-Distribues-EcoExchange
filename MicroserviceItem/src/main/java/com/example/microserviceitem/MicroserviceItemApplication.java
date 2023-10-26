@@ -30,9 +30,9 @@ public class MicroserviceItemApplication {
     ApplicationRunner init(){
         return (args)-> {
             //Save
-            itemRepository.save(new Item("Aziz","Is","esprit","good",1));
-            itemRepository.save(new Item("Ahmed","Is","esp","good",2));
-            itemRepository.save(new Item("Hamza","Is","eit","good",3));
+            itemRepository.save(new Item("Marto","Puissance 3A","Bricolage","Good",1));
+            itemRepository.save(new Item("Ibn Khaldûn (1332-1406)","Considéré comme l'un des plus grands penseurs en Islam, Ibn Khaldoun est l'auteur d'une œuvre monumentale qui rayonnera, des siècles plus tard, bien au-delà du monde musulman","Culture","Very Good",2));
+            itemRepository.save(new Item("Plante","Les plantes sont des organismes photosynthétiques et autotrophes, caractérisés par des cellules végétales. Elles forment l'un des règnes des Eukaryota. Ce règne est un groupe monophylétique comprenant les plantes terrestres","Gardiennage","Good",3));
             //fetch
             itemRepository.findAll().forEach(System.out::println);
         };
