@@ -13,15 +13,10 @@ import org.springframework.context.annotation.Bean;
 @EnableFeignClients("com.example.microserviceorganisation")
 public class MicroserviceOrganisationApplication {
 
-	@Value("${user.service.url}")
-	private String userServiceUrl;
+
 	public static void main(String[] args) {
 		SpringApplication.run(MicroserviceOrganisationApplication.class, args);
 	}
 
-	@Bean
-	public WebClient webClient(){
-		WebClient webClient=WebClient.builder().baseUrl(userServiceUrl).build();
-		return webClient;
-	}
+
 }

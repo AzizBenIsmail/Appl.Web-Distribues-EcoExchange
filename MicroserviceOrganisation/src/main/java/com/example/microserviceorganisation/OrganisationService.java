@@ -13,11 +13,7 @@ public class OrganisationService {
     @Autowired
     private OrganisationRepository organisationRepository;
 
-    @Autowired
-    WebClient webClient;
 
-    @Autowired
-    UserClient userClient;
     @Autowired
     private ModelMapper mapper;
 
@@ -53,10 +49,6 @@ public class OrganisationService {
         return organisationRepository.findById(id).orElse(null);
     }
 
-    public UserResponse getUserById(long userId){
-        Mono<UserResponse> userResponse= webClient.get().uri("/"+userId).retrieve().bodyToMono(UserResponse.class);
-        return userResponse.block();
-    }
 
 
 }
