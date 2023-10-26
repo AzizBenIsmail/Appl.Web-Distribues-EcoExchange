@@ -32,14 +32,14 @@ public void deletePost(int postId) {
     postRepository.deleteById(postId);
 }
 
-public PostRespose getPostById(int postId) {
-    Post p= postRepository.findById(postId).orElse(null);
-    PostRespose postRespose=new PostRespose(p);
-    // postRespose.setUserResponse(getUserById(p.getUser_id()));
-    postRespose.setUser(userClient.getById(p.getUser_id()));
+    public PostRespose getPostById(int postId) {
+        Post p= postRepository.findById(postId).orElse(null);
+        PostRespose postRespose=new PostRespose(p);
+        // postRespose.setUserResponse(getUserById(p.getUser_id()));
+        postRespose.setUser(userClient.getById(p.getUser_id()));
 
-    return postRespose;
-}
+        return postRespose;
+    }
 
 public List<PostRespose> getAllPosts() {
     List<Post> posts = postRepository.findAll();
@@ -55,6 +55,13 @@ public List<PostRespose> getAllPosts() {
 
     return postResponses;
 }
+
+public List<UserResponse> getAllUsers() {
+    List<UserResponse> users = userClient.getAll();
+
+    return users;
+}
+
 
 
 public UserResponse getUserById(long userId){

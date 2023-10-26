@@ -1,4 +1,4 @@
-package com.esprit.posts.posts;
+package com.example.microserviceitem;
 
 import java.util.List;
 
@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface UserClient {
     @GetMapping("/{id}")
     public UserResponse getById(@PathVariable long id);
-       @GetMapping("/users")
+    @GetMapping("/users")
     public List<UserResponse> getAll();
 }

@@ -67,10 +67,25 @@ public class PostRestAPI {
         return new ResponseEntity<>(postService.updatePost(updatedPost), HttpStatus.OK);
     }
 
+
     @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<String> deletePost(@PathVariable(value = "id") int id) {
         postService.deletePost(id);
         return new ResponseEntity<>("Post deleted successfully", HttpStatus.OK);
     }
+
+
+
+        @GetMapping(value = "/getAllUsers", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<UserResponse>> getAllUsers() {
+        List<UserResponse> users = postService.getAllUsers();
+        if (users.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
+    
 }
