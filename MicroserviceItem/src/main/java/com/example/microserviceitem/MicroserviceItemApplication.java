@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
 @EnableEurekaClient
 @EnableFeignClients("com.example.microserviceitem")
 public class MicroserviceItemApplication {
-    @Value("${user.service.url}")
+    @Value("http://localhost:8075")
     private String userServiceUrl;
 
 
