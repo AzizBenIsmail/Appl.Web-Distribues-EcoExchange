@@ -36,7 +36,7 @@ public class TradeRestAPI {
             return null;
         }
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/")
     public List<Trade> getAllTrades() {
         List<Trade> trades = tradeService.getAllTradesWithDetails();
@@ -79,7 +79,7 @@ public class TradeRestAPI {
         Trade updatedTrade = tradeService.updateTrade(tradeId,trade);
         return updatedTrade;
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/{tradeId}")
     public ResponseEntity<Void> deleteTrade(@PathVariable int tradeId) {
         tradeService.deleteTrade(tradeId);
