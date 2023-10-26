@@ -3,6 +3,7 @@ package com.example.microserviceorganisation;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +13,11 @@ public class OrganisationService {
     @Autowired
     private OrganisationRepository organisationRepository;
 
+    @Autowired
+    WebClient webClient;
+
+    @Autowired
+    UserClient userClient;
     @Autowired
     private ModelMapper mapper;
 
@@ -47,6 +53,10 @@ public class OrganisationService {
         return organisationRepository.findById(id).orElse(null);
     }
 
+    public UserResponse getUserById(long userId){
+        Mono<UserResponse> userResponse= webClient.get().uri("/"+userId).retrieve().bodyToMono(UserResponse.class);
+        return userResponse.block();
+    }
 
 
 }

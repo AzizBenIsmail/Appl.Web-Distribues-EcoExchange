@@ -12,12 +12,13 @@ public class Organisation implements Serializable {
     @Id
     @GeneratedValue
     private int id;
+    private int user_id;
     private String title,description,category;
 
     public Organisation() {
     }
 
-    public Organisation(String title, String description, String category, String state) {
+    public Organisation(String title, String description, String category) {
         this.title = title;
         this.description = description;
         this.category = category;

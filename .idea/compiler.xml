@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="apigateway" />
+        <module name="MicroServiceUser" />
+        <module name="MicroserviceTrade" />
+        <module name="Eureka_Server_EcoExchange" />
+        <module name="MicroserviceOrganisation" />
+        <module name="MicroserviceItem" />
+        <module name="posts" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Eureka_Server_EcoExchange" options="-parameters" />
+      <module name="MicroServiceUser" options="-parameters" />
+      <module name="MicroserviceItem" options="-parameters" />
+      <module name="MicroserviceOrganisation" options="-parameters" />
+      <module name="MicroserviceTrade" options="-parameters" />
+      <module name="apigateway" options="-parameters" />
+      <module name="posts" options="-parameters" />
+    </option>
+  </component>
+</project>
