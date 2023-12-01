@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b70f6666-0e15-4bee-8561-470f2d3dae4a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MicroServiceUser/src/main/java/com/spring/boot/controllers/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MicroServiceUser/src/main/java/com/spring/boot/controllers/UserRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MicroserviceTrade/src/main/java/com/trade/microservicetrade/TradeRestAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/MicroserviceTrade/src/main/java/com/trade/microservicetrade/TradeRestAPI.java" afterDir="false" />
-    </list>
+    <list default="true" id="b70f6666-0e15-4bee-8561-470f2d3dae4a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,6 +81,7 @@
       <workItem from="1698193254661" duration="881000" />
       <workItem from="1698230116314" duration="714000" />
       <workItem from="1698310956825" duration="1310000" />
+      <workItem from="1701128673579" duration="621000" />
     </task>
     <servers />
   </component>
