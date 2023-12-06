@@ -16,8 +16,3 @@ En termes de sécurité, l'intégration de Keycloak vient renforcer la robustess
 La validation de ce projet se basera sur des critères rigoureux incluant des choix architecturaux cohérents, une structuration fonctionnelle et de données consistante, des résultats d'exécution probants, le respect des technologies prévues, une documentation exhaustive, une structuration de code méthodique, une exposition riche des API avec des bonnes pratiques et la présence d'un dépôt de travail complet et organisé sur Git."
 
 Cette description met en lumière les différentes facettes et composants du projet tout en soulignant les critères clés d'évaluation pour sa validation.
-
-
-
-
-
