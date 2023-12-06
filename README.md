@@ -1,4 +1,7 @@
 # Appl.Web-Distribues-EcoExchange
+
+![GitHub repo size](https://img.shields.io/github/repo-size/AzizBenIsmail/Appl.Web-Distribues-EcoExchange)
+
 Projet de Microservices Innovant : Une Architecture Axée sur la PerformanceCe projet de validation présente une architecture microservices dynamique et hautement performante, mettant en œuvre des technologies variées pour répondre à des exigences spécifiques. Les microservices individuels, conçus avec Spring Boot et intégrant H2 ou MySQL comme base
 L'unicité de l'équipe se reflète dans l'implémentation d'un microservice avec une technologie avancée telle que Node.js, Symfony, ou équivalent, associé à des bases de données comme MongoDB ou PostgreSQL. Cette diversité technologique enrichit la solution, offrant des perspectives variées et des approches complémentaires.
 
